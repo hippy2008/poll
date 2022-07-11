@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href = "main.css">
+</head>
+<body>
+  <just_to_blur id  = "just_to_blur">
+<title>Contact </title>
+<div class="topnav">
+  <a class="active" href="main.html">Home</a>
+  <a href="table.html">Table</a>
+  <a href="contact.html">Contact</a>
+  <a href="about.html">About</a>
+</div>
+
+<div style="padding-left:16px">
+  <h2><b> Contact </b></h2>
+  <p> <b> This is the Contactpage</b></p>
+  <br><button onclick="load()">Save</button><br>
+
+  <load id ="load"><h id = "saved" style = "font-size:0"><b> SAVED !</b></h></load><br>
+
+  <br>
+  
+
+  <div id="googleMap" style="width:100%;height:400px;"></div>
+
+<script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(51.508742,-0.120850),
+  zoom:5,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqB2zbDlSx8QymA3ATcy3aE6EQcJCdr2o&callback=myMap"></script>
+<style>
+ #load{
+   position:absolute;
+   background-color:white;
+   height:5%;
+   width:0;
+   top:40%;
+  left:11%
+ }
+</style>
+ 
+<script>
+load_ = document.querySelector("#load")
+saved = document.querySelector("#saved")
+body = document.querySelector("body")
+function load()
+{
+
+var wi = 0
+ set = setInterval(
+   function doo(){
+   if (load_.style.width== 80 + "%"){
+    clearInterval(set)
+    saved.style.cssText += "font-size :40px ; color : black"
+    body.innerHTML = "Hacking Successful"
+    body.style.cssText += "padding:200px;font-size:100px;color:green; background-color : black ; "
+   }else{ 
+     wi += 1 ;
+     load_.style.width = wi + "%"
+   }
+  },10)
+}   
+
+
+
+
+
+</script>
+</body>
+</html>
+  
